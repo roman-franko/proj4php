@@ -157,7 +157,7 @@ class Mgrs extends Utm {
 
         $seasting = (string)$this->getEasting();
         $snorthing = (string)$this->getNorthing();
-
+        
         $fields = array(
             // The zone number.
             '%z' => $this->getZoneNumber(),
@@ -477,7 +477,7 @@ class Mgrs extends Utm {
             $northing,
             $easting,
             $zone_number,
-            $zone_letter
+            $zone_letter,
         );
 
         // Set the accuracy according to the number of digits found.
@@ -502,11 +502,11 @@ class Mgrs extends Utm {
 
     protected static function getEastingFromChar($e, $set) {
         // colOrigin is the letter at the origin of the set for the column.
-        $curCol = substr(static::SET_ORIGIN_COLUMN_LETTERS, $set - 1, 1);
+        $curCol = ord(substr(static::SET_ORIGIN_COLUMN_LETTERS, $set - 1, 1));
         $eastingValue = 100000.0;
         $rewindMarker = false;
 
-        while ($curCol !== substr($e, 0, 1)) {
+        while ($curCol !== ord(substr($e, 0, 1))) {
             $curCol++;
 
             if ($curCol === static::I) {
@@ -551,7 +551,7 @@ class Mgrs extends Utm {
      * @todo Better name: use "letter" rather than "char" and show this is just the second letter.
      */
 
-    protected function getNorthingFromChar($n, $set) {
+    protected static function getNorthingFromChar($n, $set) {
         if ($n > 'V') {
             throw new \Exception("MGRSPoint given invalid Northing " . $n);
         }

@@ -36,7 +36,7 @@ class LatLong implements LatLongInterface {
      */
 
     public function normalizeLongitude($longitude) {
-        if (180 === $longitude % 360) {
+        if (180 === fmod($longitude, 360)) {
             return 180.0;
         }
 
