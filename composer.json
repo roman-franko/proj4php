@@ -1,5 +1,5 @@
 {
-	"name": "academe/proj4php",
+	"name": "roman-franko/proj4php",
 	"license": "MIT",
 	"type": "library",
 	"description": "A PHP port of Proj4JS. This is still very much work-in-progress.",
@@ -8,7 +8,7 @@
 		"proj4js",
 		"datum"
 	],
-	"homepage": "https://github.com/academe/proj4php",
+	"homepage": "https://github.com/roman-franko/proj4php",
 	"authors": [
 	{
 		"name": "Jason Judge",
